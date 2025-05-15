@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">SoninhoTech</string>
+    <string name="register_sleep">Cadastrar Sono</string>
+    <string name="register_food">Cadastrar Alimentação</string>
+    <string name="reports">Relatórios</string>
+    <string name="sleep">Sono</string>
+    <string name="food">Alimentação</string>
+    <string name="today_is">Hoje é</string>
+    <string name="baby_age">Idade bebê:</string>
+    <string name="logoff">Sair</string>
+    <string name="avatar">Foto</string>
 </resources>
