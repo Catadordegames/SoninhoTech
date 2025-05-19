@@ -2,7 +2,7 @@ package com.example.soninhotech;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,7 @@ public class tela_principal_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_principal_activity);
 
-        ImageButton btnRelSono = findViewById(R.id.imageButton_sono);
+        Button btnRelSono = findViewById(R.id.btn_relatorio_sono);
         btnRelSono.setOnClickListener(v -> {
             Intent intent = new Intent(
                 tela_principal_activity.this,
@@ -22,7 +22,7 @@ public class tela_principal_activity extends AppCompatActivity {
             startActivity(intent);
         });
 
-       ImageButton btnRelAlimentacao = findViewById(R.id.imageButton_alim);
+       Button btnRelAlimentacao = findViewById(R.id.btn_relatorio_alim);
         btnRelAlimentacao.setOnClickListener(v -> {
             Intent intent = new Intent(
                 tela_principal_activity.this,
