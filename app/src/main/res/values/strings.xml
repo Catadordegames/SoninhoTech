@@ -9,4 +9,7 @@
     <string name="baby_age">Idade bebê:</string>
     <string name="logoff">Sair</string>
     <string name="avatar">Foto</string>
+    <string name="max">Max:</string>
+    <string name="min">Min:</string>
+    <string name="back">Voltar</string>
 </resources>
