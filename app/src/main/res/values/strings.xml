@@ -12,4 +12,8 @@
     <string name="max">Max:</string>
     <string name="min">Min:</string>
     <string name="back">Voltar</string>
+    <string name="register">Cadastrar</string>
+    <string name="name">Nome</string>
+    <string name="email">E-Mail</string>
+    <string name="password">Senha</string>
 </resources>
