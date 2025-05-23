@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoninhoTech"
         tools:targetApi="31">
+        <activity android:name=".esqueci_senha_activity" />
         <activity
             android:name=".login_activity"
             android:exported="true">
@@ -21,10 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".cadastro_activity"/>
-        <activity android:name=".tela_principal_activity"/>
-        <activity android:name=".relatorio_sono_activity"/>
-        <activity android:name=".relatorio_alimentacao_activity"/>
+        <activity android:name=".cadastro_activity" />
+        <activity android:name=".tela_principal_activity" />
+        <activity android:name=".relatorio_sono_activity" />
+        <activity android:name=".relatorio_alimentacao_activity" />
     </application>
 
 </manifest>

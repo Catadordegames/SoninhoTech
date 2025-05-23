@@ -32,6 +32,13 @@ public class login_activity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // TODO: esqueci senha
+        Button btn_esqueci_senha = findViewById(R.id.esqueci_senha_botao);
+        btn_esqueci_senha.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    login_activity.this,
+                    esqueci_senha_activity.class
+            );
+            startActivity(intent);
+        });
     }
 }
