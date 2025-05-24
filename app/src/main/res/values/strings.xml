@@ -21,4 +21,8 @@
     <string name="password">Senha</string>
     <string name="send">Enviar</string>
     <string name="email_sent">E-Mail enviado com sucesso</string>
+    <string name="start">Iniciar</string>
+    <string name="stop">Parar</string>
+    <string name="save">Salvar</string>
+    <string name="report_saved">Relátorio Salvo</string>
 </resources>

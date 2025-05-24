@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoninhoTech"
         tools:targetApi="31">
+        <activity
+            android:name=".cadastro_sono_activity"
+            android:exported="false" />
         <activity android:name=".esqueci_senha_activity" />
         <activity
             android:name=".login_activity"

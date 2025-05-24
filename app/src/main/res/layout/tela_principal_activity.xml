@@ -79,7 +79,7 @@
         app:layout_constraintVertical_bias="0.25" />
 
     <ImageButton
-        android:id="@+id/imageButton_sono"
+        android:id="@+id/btn_cadastro_sono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/register_sleep"
@@ -92,17 +92,17 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
-        android:id="@+id/textView_sono"
+        android:id="@+id/tv_cadastro_sono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/register_sleep"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton_sono"
-        app:layout_constraintStart_toStartOf="@+id/imageButton_sono"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton_sono" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_cadastro_sono"
+        app:layout_constraintStart_toStartOf="@+id/btn_cadastro_sono"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cadastro_sono" />
 
     <ImageButton
-        android:id="@+id/imageButton_alim"
+        android:id="@+id/btn_cadastro_alim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/register_food"
@@ -119,9 +119,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/register_food"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton_alim"
-        app:layout_constraintStart_toStartOf="@+id/imageButton_alim"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton_alim" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_cadastro_alim"
+        app:layout_constraintStart_toStartOf="@+id/btn_cadastro_alim"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cadastro_alim" />
 
     <View
         android:id="@+id/hrz_ln2"

@@ -3,6 +3,7 @@ package com.example.soninhotech;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,25 @@ public class tela_principal_activity extends AppCompatActivity {
 
         Button btnLogout = findViewById(R.id.btn_logout);
         btnLogout.setOnClickListener(v -> finish());
+
+        ImageButton btnCadSono = findViewById(R.id.btn_cadastro_sono);
+        btnCadSono.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                tela_principal_activity.this,
+                cadastro_sono_activity.class
+            );
+            startActivity(intent);
+        });
+
+        // TODO: cadastro alimentacao
+//        ImageButton btnCadAlim = findViewById(R.id.btn_cadastro_alim);
+//        btnCadAlim.setOnClickListener(v -> {
+//            Intent intent = new Intent(
+//                tela_principal_activity.this,
+//                cadastro_alimentacao_activity.class
+//            );
+//            startActivity(intent);
+//        });
 
         Button btnRelSono = findViewById(R.id.btn_relatorio_sono);
         btnRelSono.setOnClickListener(v -> {
