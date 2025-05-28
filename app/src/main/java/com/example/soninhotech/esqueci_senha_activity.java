@@ -1,19 +1,13 @@
 package com.example.soninhotech;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -34,18 +28,10 @@ public class esqueci_senha_activity extends AppCompatActivity {
 
             // TODO: recuperação de senha
             Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                 @Override
-                 public void run() {
-                     Snackbar popupMsg = Snackbar.make(v, R.string.email_sent, 4000);
-                     popupMsg.show();
-                     handler.postDelayed(new Runnable() {
-                         @Override
-                         public void run() {
-                              finish();
-                         }
-                    }, 4000);
-                 }
+            handler.postDelayed(() -> {
+                Snackbar popupMsg = Snackbar.make(v, R.string.email_sent, 4000);
+                popupMsg.show();
+                handler.postDelayed(this::finish, 4000);
             }, 2000);
         });
     }

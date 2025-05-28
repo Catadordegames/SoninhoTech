@@ -18,6 +18,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/homeAsUpIndicator" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_sleep"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/center"
+        app:layout_constraintVertical_bias="0.7" />
+
     <View
         android:id="@+id/center"
         android:layout_width="1dp"
@@ -29,9 +39,9 @@
         />
 
     <ImageButton
-        android:id="@+id/btn_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btn_start_pause"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_marginEnd="5dp"
         app:srcCompat="@android:drawable/ic_media_play"
         app:layout_constraintEnd_toStartOf="@id/center"
@@ -41,14 +51,14 @@
 
     <ImageButton
         android:id="@+id/btn_stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_marginStart="5dp"
-        app:srcCompat="@android:drawable/ic_media_pause"
+        android:contentDescription="@string/stop"
+        app:layout_constraintBottom_toBottomOf="@id/center"
         app:layout_constraintStart_toEndOf="@id/center"
         app:layout_constraintTop_toTopOf="@id/center"
-        app:layout_constraintBottom_toBottomOf="@id/center"
-        android:contentDescription="@string/stop"/>
+        app:srcCompat="@android:drawable/alert_light_frame" />
 
     <EditText
         android:id="@+id/input_time"
@@ -56,9 +66,12 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="time"
+        android:autofillHints="AUTOFILL_HINT_NOT_APPLICABLE"
+        android:hint="@string/time_default"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_start" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_pause" />
 
     <Button
         android:id="@+id/btn_save"
