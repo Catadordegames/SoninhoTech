@@ -38,11 +38,22 @@ public class cadastro_alim_activity extends AppCompatActivity {
             }
         });
 
-        btnStop.setOnClickListener(v -> timer.reset());
+        btnStop.setOnClickListener(v -> {
+            timer.reset();
+            btnStartPause.setImageResource(android.R.drawable.ic_media_play);
+            btnStartPause.setContentDescription(getString(R.string.start));
+        });
 
         Button btnSave = findViewById(R.id.btn_save);
         btnSave.setOnClickListener(v -> {
             timer.pause();
+            btnStartPause.setImageResource(android.R.drawable.ic_media_play);
+            btnStartPause.setContentDescription(getString(R.string.start));
+
+            btnStartPause.setEnabled(false);
+            btnStop.setEnabled(false);
+            timer.outputView.setEnabled(false);
+
             Handler handler = new Handler();
             handler.postDelayed(() -> {
                 Snackbar popupMsg = Snackbar.make(v, R.string.report_saved, 4000);
