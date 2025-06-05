@@ -32,6 +32,7 @@
         <activity android:name=".tela_principal_activity" />
         <activity android:name=".relatorio_sono_activity" />
         <activity android:name=".relatorio_alimentacao_activity" />
+        <activity android:name=".selecionar_perfil_activity" />
     </application>
 
 </manifest>
