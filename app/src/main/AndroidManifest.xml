@@ -13,14 +13,14 @@
         android:theme="@style/Theme.SoninhoTech"
         tools:targetApi="31">
         <activity
-            android:name=".cadastro_alim_activity"
+            android:name=".activitys.cadastro_alim_activity"
             android:exported="false" />
         <activity
-            android:name=".cadastro_sono_activity"
+            android:name=".activitys.cadastro_sono_activity"
             android:exported="false" />
-        <activity android:name=".esqueci_senha_activity" />
+        <activity android:name=".activitys.esqueci_senha_activity" />
         <activity
-            android:name=".login_activity"
+            android:name=".activitys.login_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,11 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".cadastro_activity" />
-        <activity android:name=".tela_principal_activity" />
-        <activity android:name=".relatorio_sono_activity" />
-        <activity android:name=".relatorio_alimentacao_activity" />
-        <activity android:name=".selecionar_perfil_activity" />
+        <activity android:name=".activitys.cadastro_activity" />
+        <activity android:name=".activitys.tela_principal_activity" />
+        <activity android:name=".activitys.relatorio_sono_activity" />
+        <activity android:name=".activitys.relatorio_alimentacao_activity" />
+        <activity android:name=".activitys.selection_peril_activity" />
     </application>
 
 </manifest>

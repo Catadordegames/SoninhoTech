@@ -1,4 +1,4 @@
-package com.example.soninhotech;
+package com.example.soninhotech.activitys;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;

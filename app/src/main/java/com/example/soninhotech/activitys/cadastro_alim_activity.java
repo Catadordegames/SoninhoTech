@@ -1,4 +1,4 @@
-package com.example.soninhotech;
+package com.example.soninhotech.activitys;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.soninhotech.R;
 import com.google.android.material.snackbar.Snackbar;
 
 public class cadastro_alim_activity extends AppCompatActivity {

@@ -1,9 +1,11 @@
-package com.example.soninhotech;
+package com.example.soninhotech.activitys;
 
 import android.os.Bundle;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.soninhotech.R;
 
 public class relatorio_sono_activity extends AppCompatActivity {
 

@@ -5,7 +5,7 @@
     android:id="@+id/cadastro_sono_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cadastro_sono_activity">
+    tools:context=".activitys.cadastro_sono_activity">
 
     <ImageButton
         android:id="@+id/btn_back"

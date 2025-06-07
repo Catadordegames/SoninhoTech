@@ -1,4 +1,4 @@
-package com.example.soninhotech;
+package com.example.soninhotech.activitys;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.soninhotech.R;
 import com.google.android.material.snackbar.Snackbar;
 
 public class esqueci_senha_activity extends AppCompatActivity {
