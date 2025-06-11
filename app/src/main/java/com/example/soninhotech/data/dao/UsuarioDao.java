@@ -26,6 +26,13 @@ public interface UsuarioDao {
     @Delete
     void deleteUsuario(Usuario usuario);
 
+    @Query("SELECT * FROM Usuario WHERE email = :email LIMIT 1")
+    Usuario getUsuarioByEmail(String email);
+
+    @Query("SELECT * FROM Usuario WHERE id = :id AND senha = :senha LIMIT 1")
+    Usuario autenticar(String id, String senha);
+
+
     // Buscar um usuario por id
     @Query("SELECT * FROM Usuario WHERE id = :id")
     Usuario getUsuarioById(int id);

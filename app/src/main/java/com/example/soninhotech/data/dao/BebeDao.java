@@ -25,8 +25,8 @@ public interface BebeDao {
     @Query("SELECT * FROM Bebe WHERE id = :id")
     Bebe getById(int id);
 
-    @Query("SELECT * FROM Bebe ORDER BY nome ASC")
-    List<Bebe> getAll();
+    @Query("SELECT * FROM Bebe WHERE id_usuario = :idUsuario")
+    List<Bebe> getAllByFK(String idUsuario);
 
     @Query("DELETE FROM Bebe")
     void deleteAll();

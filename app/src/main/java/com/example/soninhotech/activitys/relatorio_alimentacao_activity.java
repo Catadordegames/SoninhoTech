@@ -1,5 +1,6 @@
 package com.example.soninhotech.activitys;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
@@ -15,6 +16,9 @@ public class relatorio_alimentacao_activity extends AppCompatActivity {
         setContentView(R.layout.relatorio_alimentacao_activity);
 
         ImageButton btnBack = findViewById(R.id.btn_back);
+        SharedPreferences prefs = getSharedPreferences("APP_PREFS", MODE_PRIVATE);
+        String idUsuario = prefs.getString("ID_USUARIO_LOGADO", null);
+
         btnBack.setOnClickListener(v -> {
             finish();
         });

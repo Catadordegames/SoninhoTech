@@ -1,6 +1,7 @@
 package com.example.soninhotech.data;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.room.Database;
 import androidx.room.Room;
@@ -25,32 +26,40 @@ import com.example.soninhotech.data.entity.RegistroAlimentacao;
                 RegistroSono.class,
                 RegistroAlimentacao.class
         },
-        version = 1,
+        version = 2,
         exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase INSTANCE;
 
-    // DAOs
     public abstract UsuarioDao usuarioDao();
     public abstract BebeDao bebeDao();
     public abstract SexoDao sexoDao();
     public abstract RegistroSonoDao registroSonoDao();
     public abstract RegistroAlimentacaoDao registroAlimentacaoDao();
 
-    // Singleton
     public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(
-                                    context.getApplicationContext(),
-                                    AppDatabase.class,
-                                    "soninhoTechDB.db"
-                            )
-                            .createFromAsset("soninhoTechDB.db") // Usa o banco pré-populado da pasta assets
-                            .build();
+                    SharedPreferences prefs = context.getSharedPreferences("APP_PREFS", Context.MODE_PRIVATE);
+                    boolean isFirstRun = prefs.getBoolean("IS_FIRST_RUN", true);
+
+                    RoomDatabase.Builder<AppDatabase> builder = Room.databaseBuilder(
+                            context.getApplicationContext(),
+                            AppDatabase.class,
+                            "soninhoTech.db" // Nome do banco interno
+                    );
+
+                    if (isFirstRun) {
+                        builder = builder.createFromAsset("soninhoTech.db");
+
+                        // Marcar que já rodou uma vez
+                        prefs.edit().putBoolean("IS_FIRST_RUN", false).apply();
+                    }
+
+                    INSTANCE = builder.build();
                 }
             }
         }

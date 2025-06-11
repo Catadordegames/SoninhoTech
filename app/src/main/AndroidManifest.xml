@@ -2,7 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
     <application
+        android:name=".repository.MeuApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,6 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoninhoTech"
         tools:targetApi="31">
+        <activity
+            android:name=".activitys.wizard_menu.foto_perfil_bebe_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.wizard_menu.data_nasc_bebe_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.wizard_menu.nome_bebe_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.wizard_menu.selecionar_sexo_bebe_activity"
+            android:exported="false" />
         <activity
             android:name=".activitys.cadastro_alim_activity"
             android:exported="false" />
@@ -32,7 +50,7 @@
         <activity android:name=".activitys.tela_principal_activity" />
         <activity android:name=".activitys.relatorio_sono_activity" />
         <activity android:name=".activitys.relatorio_alimentacao_activity" />
-        <activity android:name=".activitys.selection_peril_activity" />
+        <activity android:name=".activitys.selecionar_perfil_activity" />
     </application>
 
 </manifest>
