@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/background_720">
 
     <ImageButton
         android:id="@+id/btn_back"
@@ -10,59 +12,74 @@
         android:layout_height="72dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
+        android:backgroundTint="@color/button"
+        android:contentDescription="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/homeAsUpIndicator"
-        android:contentDescription="@string/back"/>
+        app:srcCompat="?attr/homeAsUpIndicator" />
 
     <EditText
         android:id="@+id/cadastro_usuario_nome"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:hint="@string/name"
         android:autofillHints="AUTOFILL_HINT_PERSON_NAME"
+        android:hint="@string/name"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_back"
+        android:textColorLink="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_back"
         app:layout_constraintVertical_bias="0.311" />
 
     <EditText
         android:id="@+id/cadastro_usuario_email"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:hint="@string/email"
         android:autofillHints="AUTOFILL_HINT_EMAIL_ADDRESS"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cadastro_usuario_nome"
+        android:textColorLink="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cadastro_usuario_nome"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/cadastro_usuario_senha"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:hint="@string/password"
         android:autofillHints="AUTOFILL_HINT_NEW_PASSWORD"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cadastro_usuario_email"
+        android:textColorLink="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cadastro_usuario_email"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/cadastro_botao"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="104dp"
+        android:layout_width="199dp"
+        android:layout_height="69dp"
         android:layout_marginTop="100dp"
+        android:background="@drawable/ripple"
+        android:backgroundTint="@color/button"
+        android:drawableTint="@color/button"
+        android:foregroundTint="@color/button"
+        android:shadowColor="@color/button"
         android:text="@string/register"
+        android:textColor="@color/text"
+        android:textColorHighlight="@color/button"
+        android:textColorHint="@color/button"
+        android:textColorLink="@color/button"
+        app:iconTint="@color/button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cadastro_usuario_senha" />
+        app:layout_constraintTop_toTopOf="@id/cadastro_usuario_senha"
+        app:rippleColor="@color/button"
+        app:strokeColor="@color/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
