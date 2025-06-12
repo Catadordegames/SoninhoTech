@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+    <ImageButton
+        android:id="@+id/botaoMasculino"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/masculino_icone"
+        android:contentDescription="Masculino"
+        android:scaleType="fitCenter"
+        android:background="?attr/selectableItemBackgroundBorderless" />
+
+    <ImageButton
+        android:id="@+id/botaoFeminino"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/feminino_icone"
+        android:contentDescription="Feminino"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
+        android:layout_marginStart="32dp" />
+</LinearLayout>
