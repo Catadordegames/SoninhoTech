@@ -42,7 +42,8 @@
         android:padding="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="32dp"
-        android:background="@android:drawable/edit_text" />
+        android:background="@android:drawable/edit_text"
+        android:inputType="none"/>
 
     <!-- Campo de data/hora de término -->
     <TextView
@@ -61,14 +62,18 @@
         android:padding="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="48dp"
-        android:background="@android:drawable/edit_text" />
+        android:background="@android:drawable/edit_text"
+        android:inputType="none"/>
 
     <!-- Botão de salvar -->
     <Button
-        android:id="@+id/botaoSalvar"
+        android:id="@+id/btnSalvarAlteracoes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salvar" />
+        android:text="Salvar mudanças"
+        android:layout_marginTop="32dp"
+        android:padding="12dp" />
+
 
 
 </LinearLayout>

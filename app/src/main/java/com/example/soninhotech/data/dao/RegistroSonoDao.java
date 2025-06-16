@@ -25,8 +25,8 @@ public interface RegistroSonoDao {
     @Query("SELECT * FROM RegistroSono WHERE id = :id")
     RegistroSono getById(int id);
 
-    @Query("SELECT * FROM RegistroSono ORDER BY inicio DESC")
-    List<RegistroSono> getAll();
+    @Query("SELECT * FROM RegistroSono WHERE id_bebe = :id_bebe ORDER BY inicio DESC")
+    List<RegistroSono> getAll(int id_bebe);
 
     @Query("DELETE FROM RegistroSono")
     void deleteAll();

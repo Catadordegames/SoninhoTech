@@ -2,6 +2,7 @@ package com.example.soninhotech.activitys;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,11 +18,17 @@ import com.example.soninhotech.activitys.wizard_menu.foto_perfil_bebe_activity;
 import com.example.soninhotech.data.AppDatabase;
 import com.example.soninhotech.data.entity.Bebe;
 import com.example.soninhotech.repository.MeuApp;
+import com.example.soninhotech.repository.StaticFunctions;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class tela_principal_activity extends AppCompatActivity {
+
+    TextView age, data, nomeBebe, sexoBebe;
+    ImageButton foto, btnCadSono, btnCadAlim;
+    Button btnLogout, btnRelSono, btnRelAlimentacao;
+    Bebe bebe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,28 +38,44 @@ public class tela_principal_activity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("APP_PREFS", MODE_PRIVATE);
         String idUsuario = prefs.getString("ID_USUARIO_LOGADO", null);
         int idBebeLogado = prefs.getInt("ID_BEBE_LOGADO", 0);
-        TextView age = findViewById(R.id.age);
-        ImageButton foto = findViewById(R.id.avatar);
-        Button btnLogout = findViewById(R.id.btn_logout);
-        ImageButton btnCadSono = findViewById(R.id.btn_cadastro_sono);
-        ImageButton btnCadAlim = findViewById(R.id.btn_cadastro_alim);
-        Button btnRelSono = findViewById(R.id.btn_relatorio_sono);
-        Button btnRelAlimentacao = findViewById(R.id.btn_relatorio_alim);
+        bebe = (Bebe) getIntent().getSerializableExtra("bebe");
+        age = findViewById(R.id.age_value);
+        data = findViewById(R.id.date_value);
+        nomeBebe = findViewById(R.id.nome_bebe);
+        sexoBebe = findViewById(R.id.sexo_bebe);
+        foto = findViewById(R.id.avatar);
+        btnCadSono = findViewById(R.id.btn_cadastro_sono);
+        btnCadAlim = findViewById(R.id.btn_cadastro_alim);
+        btnLogout = findViewById(R.id.btn_logout);
+        btnRelSono = findViewById(R.id.btn_relatorio_sono);
+        btnRelAlimentacao = findViewById(R.id.btn_relatorio_alim);
 
-        Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(() -> {
-            // --- CÓDIGO EM SEGUNDO PLANO ---
-            if (idBebeLogado == 0){
-                Log.e("id bebe logado", Integer.toString(idBebeLogado));
-                return;
-            }
-            AppDatabase db = MeuApp.getDatabase(getApplicationContext());
-            Bebe bebe = db.bebeDao().getById(idBebeLogado);
-            runOnUiThread(() -> {
-                // codigo da UI
-                foto.setImageURI(Uri.parse(bebe.foto));
-            });
+
+        Calendar calendario = Calendar.getInstance();
+
+        int ano = calendario.get(Calendar.YEAR);
+        int mes = calendario.get(Calendar.MONTH) + 1; // Janeiro = 0, por isso +1
+        int dia = calendario.get(Calendar.DAY_OF_MONTH);
+
+
+        String dataHora = String.format("%02d/%02d/%04d", dia, mes, ano);
+        age.setText(StaticFunctions.calcularIdadeBebe(bebe.dataNascimento));
+        data.setText(dataHora);
+        nomeBebe.setText(bebe.nome);
+        if (bebe.idSexo == 1)
+            sexoBebe.setText("masculino");
+        else
+            sexoBebe.setText("feminino");
+        foto.setImageURI(Uri.parse(bebe.foto));
+
+
+        foto.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, 1); // 1 é o código de requisição
         });
+
+
 
 
         btnLogout.setOnClickListener(v -> {
@@ -98,5 +121,22 @@ public class tela_principal_activity extends AppCompatActivity {
             );
             startActivity(intent);
         });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            Uri imagemSelecionada = data.getData();
+            if (imagemSelecionada != null) {
+                bebe.foto = imagemSelecionada.toString();
+                foto.setImageURI(Uri.parse(bebe.foto));
+                Executor executor = Executors.newSingleThreadExecutor();
+                executor.execute(() -> {
+                    AppDatabase db = MeuApp.getDatabase(getApplicationContext());
+                    db.bebeDao().update(bebe);
+                });
+            }
+        }
     }
 }

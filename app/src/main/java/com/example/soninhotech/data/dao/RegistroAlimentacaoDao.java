@@ -25,8 +25,8 @@ public interface RegistroAlimentacaoDao {
     @Query("SELECT * FROM RegistroAlimentacao WHERE id = :id")
     RegistroAlimentacao getById(int id);
 
-    @Query("SELECT * FROM RegistroAlimentacao ORDER BY inicio DESC")
-    List<RegistroAlimentacao> getAll();
+    @Query("SELECT * FROM RegistroAlimentacao WHERE id_bebe =:id_bebe ORDER BY inicio DESC")
+    List<RegistroAlimentacao> getAll(int id_bebe);
 
     @Query("DELETE FROM RegistroAlimentacao")
     void deleteAll();

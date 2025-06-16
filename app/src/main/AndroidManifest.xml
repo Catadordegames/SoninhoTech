@@ -19,6 +19,9 @@
         android:theme="@style/Theme.SoninhoTech"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.editar_alimentacao_activity"
+            android:exported="false" />
+        <activity
             android:name=".activitys.wizard_menu.foto_perfil_bebe_activity"
             android:exported="false" />
         <activity
@@ -51,6 +54,7 @@
         <activity android:name=".activitys.relatorio_sono_activity" />
         <activity android:name=".activitys.relatorio_alimentacao_activity" />
         <activity android:name=".activitys.selecionar_perfil_activity" />
+        <activity android:name=".activitys.editar_sono_activity"/>
     </application>
 
 </manifest>

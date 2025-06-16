@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.io.File;
+import java.io.Serializable;
 
 @Entity(
         tableName = "Bebe",
@@ -30,7 +32,7 @@ import java.io.File;
                 @Index(value ={"id_sexo"})
         }
 )
-public class Bebe {
+public class Bebe implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
@@ -54,6 +56,15 @@ public class Bebe {
     @ColumnInfo(name = "foto")
     public String foto;
 
+    public Bebe(int id, String idUsuario, String nome, int idSexo, String dataNascimento, String foto) {
+        this.id = id;
+        this.idUsuario = idUsuario;
+        this.nome = nome;
+        this.idSexo = idSexo;
+        this.dataNascimento = dataNascimento;
+        this.foto = foto;
+    }
+    @Ignore
     public Bebe(String idUsuario, String nome, int idSexo, String dataNascimento, String foto) {
         this.idUsuario = idUsuario;
         this.nome = nome;

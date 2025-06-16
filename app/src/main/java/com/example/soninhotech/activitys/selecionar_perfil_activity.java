@@ -88,6 +88,7 @@ public class selecionar_perfil_activity extends AppCompatActivity {
                                 int idBebeLogado = prefs.getInt("ID_BEBE_LOGADO", 0);
                                 Log.i("id usuario logado", Integer.toString(idBebeLogado));
                                 Intent intent = new Intent(this, tela_principal_activity.class);
+                                intent.putExtra("bebe", bebe);
                                 startActivity(intent);
                             });
 

@@ -22,6 +22,7 @@ import com.example.soninhotech.activitys.selecionar_perfil_activity;
 import com.example.soninhotech.data.AppDatabase;
 import com.example.soninhotech.data.entity.Bebe;
 import com.example.soninhotech.repository.MeuApp;
+import com.example.soninhotech.repository.StaticFunctions;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.concurrent.Executor;
@@ -67,7 +68,7 @@ public class foto_perfil_bebe_activity extends AppCompatActivity {
 
         Intent previwsActivity = getIntent();
         String nome = previwsActivity.getStringExtra("nome");
-        String nascimento = previwsActivity.getStringExtra("nascimento");
+        String nascimento = StaticFunctions.formatarDataBd(previwsActivity.getStringExtra("nascimento"));
         int sexo = previwsActivity.getIntExtra("sexo", 1);
         SharedPreferences prefs = getSharedPreferences("APP_PREFS", MODE_PRIVATE);
         String idUsuario = prefs.getString("ID_USUARIO_LOGADO", null);
@@ -88,18 +89,18 @@ public class foto_perfil_bebe_activity extends AppCompatActivity {
                 executor.execute(() -> {
                     // --- CÓDIGO EM SEGUNDO PLANO ---
                     try {
+                        String nascimentoFormatado = StaticFunctions.formatarDataBd(nascimento);
                         if(idUsuario == null || idUsuario.isEmpty()) {
                             Log.e("idUsuario", "nenhum valor recebido");
                             return;
                         }
-                        Bebe bebeInstancia = new Bebe(idUsuario, nome, sexo, nascimento, imagemSelecionadaUri.toString());
+                        Bebe bebeInstancia = new Bebe(idUsuario, nome, sexo, nascimentoFormatado, imagemSelecionadaUri.toString());
 
                         // Pega a instância do banco e insere os dados
                         AppDatabase db = MeuApp.getDatabase(getApplicationContext());
                         db.bebeDao().insert(bebeInstancia);
 
-                        // SUCESSO! A inserção funcionou. Agora podemos mudar de tela.
-                        // Para isso, voltamos para a thread principal.
+
                         runOnUiThread(() -> {
                             // --- DE VOLTA À THREAD PRINCIPAL ---
                             Toast.makeText(foto_perfil_bebe_activity.this, "Perfil do bebê salvo!", Toast.LENGTH_SHORT).show();
@@ -107,9 +108,7 @@ public class foto_perfil_bebe_activity extends AppCompatActivity {
                             // A NAVEGAÇÃO ACONTECE AQUI, APENAS DEPOIS DO SUCESSO!
                             Intent nextActivity = new Intent(foto_perfil_bebe_activity.this, selecionar_perfil_activity.class);
                             startActivity(nextActivity);
-
-                            // Opcional: finalize a activity atual se não quiser que o usuário volte para ela
-                            // finish();
+                            finish();
                         });
 
                     } catch (Exception e) {
