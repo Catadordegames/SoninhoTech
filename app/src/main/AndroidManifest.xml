@@ -19,6 +19,14 @@
         android:theme="@style/Theme.SoninhoTech"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activitys.editar_alimentacao_activity"
             android:exported="false" />
         <activity
@@ -42,19 +50,14 @@
         <activity android:name=".activitys.esqueci_senha_activity" />
         <activity
             android:name=".activitys.login_activity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity android:name=".activitys.cadastro_activity" />
         <activity android:name=".activitys.tela_principal_activity" />
         <activity android:name=".activitys.relatorio_sono_activity" />
         <activity android:name=".activitys.relatorio_alimentacao_activity" />
         <activity android:name=".activitys.selecionar_perfil_activity" />
-        <activity android:name=".activitys.editar_sono_activity"/>
+        <activity android:name=".activitys.editar_sono_activity" />
     </application>
 
 </manifest>
