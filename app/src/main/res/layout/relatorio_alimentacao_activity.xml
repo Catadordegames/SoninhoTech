@@ -2,7 +2,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@drawable/background_720"
     android:orientation="vertical"
@@ -17,6 +16,7 @@
         android:layout_marginTop="32dp"
         android:layout_gravity="start"
         app:srcCompat="?attr/homeAsUpIndicator"
+        android:backgroundTint="@color/button"
         android:contentDescription="@string/back"/>
 
     <ListView

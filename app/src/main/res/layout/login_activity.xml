@@ -10,8 +10,9 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:hint="@string/user"
+        android:textColor="@color/text"
         android:autofillHints="AUTOFILL_HINT_USERNAME"
-        android:inputType="text"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,6 +24,7 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:hint="@string/password"
+        android:textColor="@color/text"
         android:autofillHints="AUTOFILL_HINT_PASSWORD"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,9 +37,10 @@
     <Button
         android:id="@+id/login_botao"
         android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:text="@string/login"
+        android:background="@drawable/ripple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_senha" />
@@ -48,6 +51,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="5dp"
         android:text="@string/register"
+        android:background="@drawable/ripple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_botao" />
@@ -58,6 +62,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="5dp"
         android:text="@string/forgot_pw"
+        android:background="@drawable/ripple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cadastro_botao" />

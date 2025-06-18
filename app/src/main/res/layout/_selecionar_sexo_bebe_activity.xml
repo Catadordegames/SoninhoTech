@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/background_720">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,7 +19,7 @@
             android:src="@drawable/masculino_icone"
             android:scaleType="fitCenter"
             android:padding="16dp"
-            android:contentDescription="Selecionar sexo masculino"
+            android:contentDescription="@string/male"
             android:background="?attr/selectableItemBackground" />
 
         <ImageButton
@@ -29,7 +30,7 @@
             android:src="@drawable/feminino_icone"
             android:scaleType="fitCenter"
             android:padding="16dp"
-            android:contentDescription="Selecionar sexo feminino"
+            android:contentDescription="@string/female"
             android:background="?attr/selectableItemBackground" />
 
     </LinearLayout>
@@ -38,9 +39,9 @@
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         android:layout_marginTop="40dp"
         android:gravity="bottom"
-        android:text="proximo" />
+        android:background="@drawable/ripple"
+        android:text="@string/next" />
 
 </LinearLayout>

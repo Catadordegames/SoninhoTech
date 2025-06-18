@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:padding="24dp"
-    tools:context=".activitys.wizard_menu.foto_perfil_bebe_activity">
+    tools:context=".activitys.wizard_menu.foto_perfil_bebe_activity"
+    android:background="@drawable/background_720">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Escolha sua foto de perfil"
+        android:text="@string/choose_profile_photo"
+        android:textColor="@color/text"
         android:textSize="22sp"
         android:textStyle="bold"
         android:layout_marginBottom="32dp"/>
@@ -29,7 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Escolher da Galeria" />
+        android:text="@string/choose_from_gallery"
+        android:background="@drawable/ripple"/>
 
     <View
         android:layout_width="0dp"
@@ -38,8 +40,8 @@
 
     <Button
         android:id="@+id/nextButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Próximo" />
+        android:text="@string/next" />
 
 </LinearLayout>

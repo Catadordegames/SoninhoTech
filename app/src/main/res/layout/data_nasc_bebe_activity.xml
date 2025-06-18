@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/background_720">
 
     <TextView
         android:id="@+id/insiraNasc"
@@ -14,6 +15,8 @@
         android:gravity="top"
         android:padding="20dp"
         android:text="@string/insiraNasc"
+        android:textColor="@color/text"
+        android:labelFor="@+id/campoData"
         android:textSize="20sp" />
 
     <EditText
@@ -22,7 +25,8 @@
         android:layout_height="wrap_content"
         android:focusable="false"
         android:clickable="true"
-        android:inputType="none"
+        android:inputType="date"
+        android:importantForAutofill="no"
         android:gravity="center"
         android:padding="16dp" />
 
@@ -30,8 +34,8 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         android:layout_marginTop="40dp"
-        android:text="proximo" />
+        android:background="@drawable/ripple"
+        android:text="@string/next" />
 
 </LinearLayout>
