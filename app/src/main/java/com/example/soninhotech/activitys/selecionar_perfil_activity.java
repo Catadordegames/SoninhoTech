@@ -64,43 +64,50 @@ public class selecionar_perfil_activity extends AppCompatActivity {
 
                 if (bebeList != null && !bebeList.isEmpty()) {
                     for (Bebe bebe : bebeList) {
+                        ImageButton imageButton = new ImageButton(this);
+
                         if (bebe.foto != null && !bebe.foto.isEmpty()) {
-
-                            // 3. Troca de ImageView para ImageButton
-                            ImageButton imageButton = new ImageButton(this);
-
                             // Converte a string da foto para Uri e define no botão
                             imageButton.setImageURI(Uri.parse(bebe.foto));
-
-                            // Configurações de layout (tamanho, margens, etc.)
-                            int tamanho = (int) getResources().getDimension(R.dimen.tamanho_foto_bebe);
-                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(tamanho, tamanho);
-                            params.setMargins(16, 16, 16, 16);
-                            imageButton.setLayoutParams(params);
-                            imageButton.setScaleType(ImageButton.ScaleType.CENTER_CROP);
-
-                            // 4. Adiciona o OnClickListener para tornar o botão funcional
-                            imageButton.setOnClickListener(v -> {
-                                // TODO: Coloque aqui a ação desejada, como abrir uma tela de detalhes
-                                SharedPreferences.Editor editor= prefs.edit();
-                                editor.putInt("ID_BEBE_LOGADO", bebe.id);
-                                editor.apply();
-                                int idBebeLogado = prefs.getInt("ID_BEBE_LOGADO", 0);
-                                Log.i("id usuario logado", Integer.toString(idBebeLogado));
-                                Intent intent = new Intent(this, tela_principal_activity.class);
-                                intent.putExtra("bebe", bebe);
-                                startActivity(intent);
-                            });
-
-                            // Adiciona o ImageButton criado ao seu layout container
-                            if (layoutContainer != null) {
-                                layoutContainer.addView(imageButton);
+                        } else {
+                            // Define imagem padrão com base no sexo
+                            if (bebe.idSexo == 1) {
+                                imageButton.setImageResource(R.drawable.bebe_masculino);
+                            } else {
+                                imageButton.setImageResource(R.drawable.bebe_feminino);
                             }
+                        }
+
+                        // Configurações de layout (tamanho, margens, etc.)
+                        int tamanho = (int) getResources().getDimension(R.dimen.tamanho_foto_bebe);
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(tamanho, tamanho);
+                        params.setMargins(16, 16, 16, 16);
+                        imageButton.setLayoutParams(params);
+                        imageButton.setScaleType(ImageButton.ScaleType.CENTER_CROP);
+
+                        // Adiciona o OnClickListener
+                        imageButton.setOnClickListener(v -> {
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putInt("ID_BEBE_LOGADO", bebe.id);
+                            editor.apply();
+
+                            int idBebeLogado = prefs.getInt("ID_BEBE_LOGADO", 0);
+                            Log.i("id usuario logado", Integer.toString(idBebeLogado));
+
+                            Intent intent = new Intent(this, tela_principal_activity.class);
+                            intent.putExtra("bebe", bebe);
+                            startActivity(intent);
+                        });
+
+                        // Adiciona ao layout container
+                        if (layoutContainer != null) {
+                            layoutContainer.addView(imageButton);
                         }
                     }
                 } else {
                     Log.d("MostrarBebes", "Nenhum bebê encontrado no banco de dados.");
                 }
+
             });
         });
 

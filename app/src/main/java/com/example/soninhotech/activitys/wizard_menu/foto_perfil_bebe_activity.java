@@ -73,59 +73,60 @@ public class foto_perfil_bebe_activity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("APP_PREFS", MODE_PRIVATE);
         String idUsuario = prefs.getString("ID_USUARIO_LOGADO", null);
 
+        if (sexo == 1)
+            profileImageView.setImageResource(R.drawable.bebe_masculino);
+        else
+            profileImageView.setImageResource(R.drawable.bebe_feminino);
+
         // O botão "Próximo" começa desabilitado
-        nextButton.setEnabled(false);
+        nextButton.setEnabled(true);
 
         // Define a ação do botão para escolher a imagem
         chooseImageButton.setOnClickListener(v -> verificarPermissaoEabrirGaleria());
 
         // Define a ação do botão "Próximo"
         nextButton.setOnClickListener(v -> {
-            if (imagemSelecionadaUri != null) {
-                // Crie a instância do Executor
-                Executor executor = Executors.newSingleThreadExecutor();
-
-                // Inicie a tarefa de salvar em segundo plano
-                executor.execute(() -> {
-                    // --- CÓDIGO EM SEGUNDO PLANO ---
-                    try {
-                        String nascimentoFormatado = StaticFunctions.formatarDataBd(nascimento);
-                        if(idUsuario == null || idUsuario.isEmpty()) {
-                            Log.e("idUsuario", "nenhum valor recebido");
-                            return;
-                        }
-                        Bebe bebeInstancia = new Bebe(idUsuario, nome, sexo, nascimentoFormatado, imagemSelecionadaUri.toString());
-
-                        // Pega a instância do banco e insere os dados
-                        AppDatabase db = MeuApp.getDatabase(getApplicationContext());
-                        db.bebeDao().insert(bebeInstancia);
-
-
-                        runOnUiThread(() -> {
-                            // --- DE VOLTA À THREAD PRINCIPAL ---
-                            Toast.makeText(foto_perfil_bebe_activity.this, "Perfil do bebê salvo!", Toast.LENGTH_SHORT).show();
-
-                            // A NAVEGAÇÃO ACONTECE AQUI, APENAS DEPOIS DO SUCESSO!
-                            Intent nextActivity = new Intent(foto_perfil_bebe_activity.this, selecionar_perfil_activity.class);
-                            startActivity(nextActivity);
-                            finish();
-                        });
-
-                    } catch (Exception e) {
-                        // ERRO! A inserção no banco falhou.
-                        Log.e("DEBUG_BEBE", "Erro ao salvar o perfil do bebê no banco.", e);
-
-                        // Notifique o usuário sobre o erro, também na thread principal
-                        runOnUiThread(() -> {
-                            Toast.makeText(foto_perfil_bebe_activity.this, "Não foi possível salvar o perfil.", Toast.LENGTH_LONG).show();
-                        });
+            Executor executor = Executors.newSingleThreadExecutor();
+            executor.execute(() -> {
+                // --- CÓDIGO EM SEGUNDO PLANO ---
+                try {
+                    String nascimentoFormatado = StaticFunctions.formatarDataBd(nascimento);
+                    if (idUsuario == null || idUsuario.isEmpty()) {
+                        Log.e("idUsuario", "nenhum valor recebido");
+                        return;
                     }
-                });
-            } else {
-                Toast.makeText(this, "Nenhuma imagem selecionada.", Toast.LENGTH_SHORT).show();
-            }
+
+                    Bebe bebeInstancia = new Bebe(idUsuario, nome, sexo, nascimentoFormatado,
+                            imagemSelecionadaUri != null ? imagemSelecionadaUri.toString() : null);
+
+                    // Pega a instância do banco e insere os dados
+                    AppDatabase db = MeuApp.getDatabase(getApplicationContext());
+                    db.bebeDao().insert(bebeInstancia);
+
+                    runOnUiThread(() -> {
+                        // --- DE VOLTA À THREAD PRINCIPAL ---
+                        Toast.makeText(foto_perfil_bebe_activity.this, "Perfil do bebê salvo!", Toast.LENGTH_SHORT).show();
+
+                        // A NAVEGAÇÃO ACONTECE AQUI, APENAS DEPOIS DO SUCESSO!
+                        Intent nextActivity = new Intent(foto_perfil_bebe_activity.this, selecionar_perfil_activity.class);
+                        startActivity(nextActivity);
+                        finish();
+                    });
+
+                } catch (Exception e) {
+                    // ERRO! A inserção no banco falhou.
+                    Log.e("DEBUG_BEBE", "Erro ao salvar o perfil do bebê no banco.", e);
+
+                    // Notifique o usuário sobre o erro, também na thread principal
+                    runOnUiThread(() -> {
+                        Toast.makeText(foto_perfil_bebe_activity.this, "Não foi possível salvar o perfil.", Toast.LENGTH_LONG).show();
+                    });
+                }
+            });
         });
     }
+
+
 
     private void verificarPermissaoEabrirGaleria() {
         String permissao;

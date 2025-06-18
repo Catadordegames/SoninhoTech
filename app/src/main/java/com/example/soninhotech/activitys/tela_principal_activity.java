@@ -62,11 +62,20 @@ public class tela_principal_activity extends AppCompatActivity {
         age.setText(StaticFunctions.calcularIdadeBebe(bebe.dataNascimento));
         data.setText(dataHora);
         nomeBebe.setText(bebe.nome);
-        if (bebe.idSexo == 1)
+        if (bebe.idSexo == 1) {
             sexoBebe.setText("masculino");
-        else
+            if (bebe.foto == null || bebe.foto.isEmpty())
+                foto.setImageResource(R.drawable.bebe_masculino);
+            else
+                foto.setImageURI(Uri.parse(bebe.foto));
+        }
+        else{
             sexoBebe.setText("feminino");
-        foto.setImageURI(Uri.parse(bebe.foto));
+            if (bebe.foto == null || bebe.foto.isEmpty())
+                foto.setImageResource(R.drawable.bebe_feminino);
+            else
+                foto.setImageURI(Uri.parse(bebe.foto));
+        }
 
 
         foto.setOnClickListener(v -> {

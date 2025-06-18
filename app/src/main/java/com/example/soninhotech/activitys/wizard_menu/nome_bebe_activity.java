@@ -25,12 +25,15 @@ public class nome_bebe_activity extends AppCompatActivity {
 
         proximoButton.setOnClickListener(v -> {
             String nome = nomeEditText.getText().toString().trim();
+            if(!nome.isEmpty()) {
 
-            SharedPreferences prefs = getSharedPreferences("APP_PREFS", MODE_PRIVATE);
-            prefs.edit().putString("NOME_BEBE", nome).apply();
+                SharedPreferences prefs = getSharedPreferences("APP_PREFS", MODE_PRIVATE);
+                prefs.edit().putString("NOME_BEBE", nome).apply();
 
-            Intent intent = new Intent(this, data_nasc_bebe_activity.class);
-            startActivity(intent);
+                Intent intent = new Intent(this, data_nasc_bebe_activity.class);
+                startActivity(intent);
+            }else
+                nomeEditText.setError("insira um nome");
         });
     }
 }
