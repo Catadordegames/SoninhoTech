@@ -2,6 +2,10 @@
     <string name="app_name">SoninhoTech</string>
     <string name="register_sleep">Cadastrar Sono</string>
     <string name="register_food">Cadastrar Alimentação</string>
+    <string name="start_sleep">Início do sono</string>
+    <string name="start_food">Início da alimentação</string>
+    <string name="end_sleep">Término do sono</string>
+    <string name="end_food">Término da alimentação</string>
     <string name="reports">Relatórios</string>
     <string name="sleep">Sono</string>
     <string name="food">Alimentação</string>
@@ -25,9 +29,17 @@
     <string name="pause">Pausar</string>
     <string name="stop">Parar</string>
     <string name="save">Salvar</string>
+    <string name="save_changes">Salvar mudanças</string>
     <string name="report_saved">Relátorio Salvo</string>
     <string name="time">Tempo</string>
     <string name="time_default">0:00</string>
-    <string name="insiriaNome">insira o nome do bebe</string>
-    <string name="insiraNasc">insira data de nascimento</string>
+    <string name="date_time_default">dd/MM/yyyy HH:mm</string>
+    <string name="insiriaNome">Insira o nome do bebe</string>
+    <string name="insiraNasc">Insira data de nascimento</string>
+    <string name="next">Proximo</string>
+    <string name="choose_profile_photo">Escolha sua foto de perfil</string>
+    <string name="choose_from_gallery">Escolher da Galeria</string>
+    <string name="profiles">Perfils</string>
+    <string name="male">Masculino</string>
+    <string name="female">Feminino</string>
 </resources>

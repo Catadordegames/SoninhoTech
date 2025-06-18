@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/background_720">
 
     <TextView
         android:id="@+id/insiraNome"
@@ -14,6 +15,8 @@
         android:gravity="top"
         android:padding="20dp"
         android:text="@string/insiriaNome"
+        android:labelFor="@id/campoNomeBebe"
+        android:textColor="@color/text"
         android:textSize="20sp" />
 
     <EditText
@@ -22,14 +25,15 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="16dp"
-        android:hint="Digite o nome"
-        android:inputType="text" />
+        android:textColor="@color/text"
+        android:autofillHints="name"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         android:layout_marginTop="40dp"
-        android:text="proximo" />
+        android:background="@drawable/ripple"
+        android:text="@string/next" />
 </LinearLayout>

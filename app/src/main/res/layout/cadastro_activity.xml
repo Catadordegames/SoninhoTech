@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_720">
@@ -62,24 +61,13 @@
 
     <Button
         android:id="@+id/cadastro_botao"
-        android:layout_width="199dp"
-        android:layout_height="69dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_marginTop="100dp"
-        android:background="@drawable/ripple"
-        android:backgroundTint="@color/button"
-        android:drawableTint="@color/button"
-        android:foregroundTint="@color/button"
-        android:shadowColor="@color/button"
         android:text="@string/register"
-        android:textColor="@color/text"
-        android:textColorHighlight="@color/button"
-        android:textColorHint="@color/button"
-        android:textColorLink="@color/button"
-        app:iconTint="@color/button"
+        android:background="@drawable/ripple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cadastro_usuario_senha"
-        app:rippleColor="@color/button"
-        app:strokeColor="@color/button" />
+        app:layout_constraintTop_toTopOf="@id/cadastro_usuario_senha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

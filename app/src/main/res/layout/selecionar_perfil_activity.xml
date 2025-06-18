@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:gravity="center"
-        android:contentDescription="perfils">
+        android:contentDescription="@string/profiles">
 
         <LinearLayout
             android:id="@+id/LinearLayout2"

@@ -18,6 +18,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/button"
         android:contentDescription="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +29,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Início do sono"
+        android:text="@string/start_sleep"
+        android:textColor="@color/text"
         android:layout_marginTop="90dp"
         android:textSize="18sp" />
 
@@ -36,31 +38,40 @@
         android:id="@+id/campoInicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="dd/MM/yyyy HH:mm"
+        android:layout_marginHorizontal="10dp"
+        android:hint="@string/date_time_default"
+        android:textColor="@color/text"
+        android:inputType="datetime"
         android:focusable="false"
         android:clickable="true"
         android:padding="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="32dp"
+        android:importantForAutofill="no"
         android:background="@android:drawable/edit_text" />
 
     <!-- Campo de data/hora de término -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Término do sono"
+        android:text="@string/end_sleep"
+        android:textColor="@color/text"
         android:textSize="18sp" />
 
     <EditText
         android:id="@+id/campoFim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="dd/MM/yyyy HH:mm"
+        android:layout_marginHorizontal="10dp"
+        android:hint="@string/date_time_default"
+        android:textColor="@color/text"
+        android:inputType="datetime"
         android:focusable="false"
         android:clickable="true"
         android:padding="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="48dp"
+        android:importantForAutofill="no"
         android:background="@android:drawable/edit_text" />
 
     <!-- Botão de salvar -->
@@ -68,7 +79,8 @@
         android:id="@+id/botaoSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salvar" />
+        android:background="@drawable/ripple"
+        android:text="@string/save" />
 
 
 </LinearLayout>

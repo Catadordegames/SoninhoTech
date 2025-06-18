@@ -11,7 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:text="@string/today_is"
+        android:textColor="@color/text"
         app:layout_constraintBottom_toTopOf="@+id/avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="14/05/2025"
+        android:textColor="@color/text"
         app:layout_constraintStart_toEndOf="@+id/date"
         app:layout_constraintTop_toTopOf="@+id/date" />
 
@@ -30,10 +33,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:text="@string/baby_age"
+        android:textColor="@color/text"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintStart_toEndOf="@+id/avatar"
-        app:layout_constraintTop_toBottomOf="@+id/nome_bebe" />
+        app:layout_constraintTop_toTopOf="@+id/avatar" />
 
     <TextView
         android:id="@+id/age_value"
@@ -41,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="1m 14d"
+        android:textColor="@color/text"
         app:layout_constraintStart_toEndOf="@+id/age"
         app:layout_constraintTop_toTopOf="@+id/age" />
 
@@ -49,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/logoff"
+        android:background="@drawable/ripple"
         app:layout_constraintBottom_toTopOf="@+id/hrz_ln1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
@@ -65,10 +71,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/hrz_ln1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414"
+        app:layout_constraintVertical_bias="0.7"
         tools:srcCompat="@tools:sample/avatars" />
 
     <View
@@ -90,7 +96,6 @@
         android:contentDescription="@string/register_sleep"
         app:layout_constraintBottom_toTopOf="@+id/hrz_ln2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hrz_ln1"
         app:layout_constraintVertical_bias="0.075"
@@ -102,6 +107,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/register_sleep"
+        android:textColor="@color/text"
+        android:labelFor="@id/btn_cadastro_sono"
         app:layout_constraintEnd_toEndOf="@+id/btn_cadastro_sono"
         app:layout_constraintStart_toStartOf="@+id/btn_cadastro_sono"
         app:layout_constraintTop_toBottomOf="@+id/btn_cadastro_sono" />
@@ -124,6 +131,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/register_food"
+        android:textColor="@color/text"
+        android:labelFor="@id/btn_cadastro_alim"
         app:layout_constraintEnd_toEndOf="@+id/btn_cadastro_alim"
         app:layout_constraintStart_toStartOf="@+id/btn_cadastro_alim"
         app:layout_constraintTop_toBottomOf="@+id/btn_cadastro_alim" />
@@ -146,6 +155,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/reports"
+        android:textColor="@color/text"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hrz_ln2" />
@@ -156,6 +168,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:text="@string/food"
+        android:background="@drawable/ripple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hrz_ln2"
@@ -166,6 +179,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sleep"
+        android:background="@drawable/ripple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_relatorio_alim"
@@ -176,23 +190,22 @@
         android:id="@+id/nome_bebe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="6dp"
         android:text="nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toEndOf="@+id/avatar"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/avatar" />
 
     <TextView
         android:id="@+id/sexo_bebe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="6dp"
         android:text="sexo"
-        app:layout_constraintBottom_toTopOf="@+id/hrz_ln1"
-        app:layout_constraintStart_toEndOf="@+id/avatar"
-        app:layout_constraintTop_toBottomOf="@+id/age"
-        app:layout_constraintVertical_bias="0.39" />
+        android:textColor="@color/text"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+        app:layout_constraintStart_toEndOf="@+id/avatar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
