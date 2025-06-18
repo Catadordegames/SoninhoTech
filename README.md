@@ -1,7 +1,9 @@
 # 👶📱 SoninhoTech – Monitoramento de Sono e Alimentação do Bebê
 
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Android_robot.svg" alt="Android Logo" height="100"/>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDHvnyoyWI-FlgTfOWRoJjazD3ke1Q6hOgfQ&s" width="100" height="100" style="margin-right: 20;"/>
+  <img src="https://via.placeholder.com/20x1" width="20" height="1" />
+  <img src="https://via.placeholder.com/20x1" width="20" height="1" />
   <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java Logo" height="100"/>
 </div>
 
